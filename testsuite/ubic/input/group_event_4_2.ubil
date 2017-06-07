@@ -1,0 +1,18 @@
+import datetime;
+
+entity servico
+	service soma(int x, int y) [int]
+		return x+y;
+	end
+	method constructor()
+		{"context"}.service += soma(int,int);
+	end
+end
+
+entity start
+	method constructor()
+		var element s = servico.new();
+		s.servico();
+	end
+end
+

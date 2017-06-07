@@ -1,0 +1,18 @@
+entity start
+	method constructor()
+		var element x = util.new();
+		x.metodo1("aaa");
+		io.writeln("Depois de invocar metodo1");
+		x.metodo2(111);
+		io.writeln("Depois de invocar metodo2");
+	end
+end
+
+entity util
+	method metodo1(string param)
+		io.writeln(param);
+	end
+	method metodo2(int param)
+		io.writeln(param);
+	end
+end

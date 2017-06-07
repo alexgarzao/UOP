@@ -1,0 +1,13 @@
+// Terceiro teste: Programa 1 insere num1 e mostra valor num2, Programa 2 insere num2 e mostra valor num1
+
+import datetime;
+
+entity start
+	method constructor()
+		io.writeln("Programa 1 inserindo N1");
+		{"MeuContexto"}.cpublish("N1" => 100);
+//		datetime.sleep(5);
+		io.writeln("Informacoes inseridas pelo programa 2: ", {"MeuContexto"}.cfind("N2"));
+//		datetime.sleep(5); // TODO: necessario pq, se a VM termina, ela nao responde mais
+	end
+end

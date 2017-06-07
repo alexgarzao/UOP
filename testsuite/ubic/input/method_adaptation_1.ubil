@@ -1,0 +1,16 @@
+entity start
+	method constructor()
+		element k = kernel.new();
+		k.run();
+	end
+end
+
+entity kernel
+	method run() when identity.device.images == true
+		io.writeln( "Exibe imagens !!!" );
+	end
+	method run() when identity.device.images == false
+		io.writeln( "Nao exibe imagens !!!" );
+	end
+end
+

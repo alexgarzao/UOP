@@ -1,0 +1,9 @@
+entity start
+	prop string txt;
+	method constructor()
+		txt = "Mensagem";
+		io.writeln(txt);
+	end
+end
+
+

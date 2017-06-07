@@ -1,0 +1,14 @@
+entity start
+	method constructor()
+		var element e;
+		e = elemento.new();
+		e.x("oi");
+	end
+end
+
+entity elemento
+	method x(string msg)
+		io.writeln("msg=", msg);
+	end
+end
+

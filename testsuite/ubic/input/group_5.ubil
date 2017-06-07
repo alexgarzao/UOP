@@ -1,0 +1,7 @@
+entity start
+	method constructor()
+		io.writeln("Inserindo informacoes");
+		{"MeuContexto"}.cpublish("key 1", "key 2" => "key1+key2");
+		io.writeln("Informacoes inseridas: ", {"MeuContexto"}.cget("key 1", "key 2"));
+	end
+end

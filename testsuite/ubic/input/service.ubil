@@ -1,0 +1,15 @@
+entity servico
+	service soma(int x, int y) [int]
+		return x+y;
+	end
+	method constructor()
+		{"context"}.services += soma(int,int);
+	end
+end
+
+entity start
+	method constructor():
+		io.writeln("Soma: ", ["context"].soma(10,20));
+	end
+end
+

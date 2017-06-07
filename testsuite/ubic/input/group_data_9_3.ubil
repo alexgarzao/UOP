@@ -1,0 +1,6 @@
+entity start
+	method constructor()
+		io.writeln("Primeira informacao inserida: ", {"MeuContexto"}.cget("Nro 1"));
+		io.writeln("Segunda informacao inserida: ", {"MeuContexto"}.cget("Nro 1"));
+	end
+end

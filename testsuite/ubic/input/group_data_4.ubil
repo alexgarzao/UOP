@@ -1,0 +1,17 @@
+import datetime;
+
+entity start
+	method constructor()
+		var element insere = insert_data.new();
+		io.writeln("Informacao inserida: ", {"MeuContexto"}.cfind("Numero 1"));
+	end
+end
+
+entity insert_data [parallel]
+	method constructor()
+		datetime.sleep(5);
+		io.writeln("Inserindo informacao");
+		{"MeuContexto"}.cpublish("Numero 1" => 100);
+	end
+end
+

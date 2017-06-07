@@ -1,0 +1,14 @@
+// Primeiro teste: programa publica e ele mesmo consulta, através do broadcast
+// Segundo teste: Programa 1 insere informação que o programa 2 irá remover
+// Terceiro teste: Programa 1 insere num1 e mostra valor num2, Programa 2 insere num2 e mostra valor num1
+// Outros testes: ao inves de .qu, usar dqu e nbdqu
+
+entity start
+	method constructor()
+//		while(true)
+//		end
+		io.writeln("Inserindo informacoes");
+		{"MeuContexto"}.cpublish("Numero 1" => 100);
+		io.writeln("Informacoes inseridas: ", {"MeuContexto"}.cfind("Numero 1"));
+	end
+end

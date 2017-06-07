@@ -1,0 +1,13 @@
+entity start
+	service service1() [int]
+		return 10;
+	end
+	service service2() [string]
+		return "xxx";
+	end
+	method constructor()
+		{"context"}.services += service1;
+		{"context"}.services += service2;
+	end
+end
+

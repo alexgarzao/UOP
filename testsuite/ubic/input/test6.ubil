@@ -1,0 +1,22 @@
+// NOME       : test6.ubil
+// DATA       : 01/08/2002
+// RESPONSAVEL: Alex Sandro Garzao (alexgarzao@bol.com.br)
+// FUNCAO     : Demonstra que as variaveis criadas em uma acao sempre 
+//              tem escopo local.
+// ENTRADA    : Nenhuma.
+// SAIDA      : Nenhuma.
+// OBSERVACOES: Nenhuma.
+
+entity start
+	method constructor()
+		var int v1 = 0;
+		io.writeln("v1 no metodo start/0: ", v1);
+		metodo1();
+		io.writeln("v1 no metodo start/0: ", v1);
+	end
+	method metodo1()
+		var int v1 = 1;
+		io.writeln("V1 no metodo metodo1/0: ", v1);
+	end
+end
+

@@ -1,0 +1,166 @@
+import datetime;
+import ncurses;
+import ncurses_menu;
+import trail;
+import tools;
+
+entity start
+
+	method constructor()
+		var tuple offer;                
+		var table prod_list;
+		var string text;
+		var int prod_number;
+
+		var int prod_choosed;
+		var int count = 0;
+		var table prod_name;
+		var table prod_code_in_menu;
+		var table service_name_in_menu;
+
+		//var int prod_choosed2;
+		var int count2 = 0;
+		var table prod_name2;
+		var table prod_code_in_menu2;
+		var table service_name_in_menu2;
+		var int size_p_list=0;
+		var int index=0;
+
+	
+		trail.create_trail();
+		
+		//location.symbolic = "loja3";
+		
+		ncurses.initscr();
+		
+		ncurses.mvwrite(3,  2, "LOCAL...................: ");ncurses.mvwrite(3, 27, location.symbolic);
+				
+		
+		location.symbolic = "est.";
+		while(location.symbolic<>"end")
+		//int prod_number5;
+		ncurses.mvwrite(3, 27, location.symbolic);
+		
+		get_infos();
+		
+  
+		ncurses.mvwrite(10, 3, "LOJISTA                       OFERTA                         VALOR");
+		ncurses_menu.clear();
+		prod_list = {"/shopping"}.clist();
+        	identity.preferred = "";
+		identity.preferred = trail.preferred_activity_local(location.symbolic);
+		count=0;
+		if (identity.preferred <> "Error - No data")
+			ncurses.mvwrite(5, 27, identity.preferred);
+			for(prod_number=1; prod_number<=prod_list.size(); prod_number++)
+				offer = prod_list[prod_number];
+				if(offer.results[3]==location.symbolic and offer.results[1]==identity.preferred)
+					ncurses_menu.new_item(tools.pad(offer.keys[1], 30) + tools.pad(offer.keys[2],3) 
+					+ tools.pad(offer.results[1], 30) + tools.ftoa(offer.results[2]));
+
+					count++;
+					prod_name[count] = offer.results[1];
+					prod_code_in_menu[count] = offer.keys[2];
+					service_name_in_menu[count] = offer.results[4];
+				end
+			end
+		end
+
+		for(prod_number=1; prod_number<=prod_list.size(); prod_number++)
+			offer = prod_list[prod_number];
+			if(offer.results[3]==location.symbolic and offer.results[1]<>identity.preferred)
+				ncurses_menu.new_item(tools.pad(offer.keys[1], 30) + tools.pad(offer.keys[2], 3) 
+				+ tools.pad(offer.results[1], 30) + tools.ftoa(offer.results[2]));
+
+				count++;
+				prod_name[count] = offer.results[1];
+				prod_code_in_menu[count] = offer.keys[2];
+				service_name_in_menu[count] = offer.results[4];
+			end
+			
+		end
+		ncurses_menu.new_item(tools.pad("NDA", 30));
+
+		prod_choosed = ncurses_menu.show(10, 71, 11, 1);
+
+		if (count > 0)
+
+        	       if (prod_choosed <> (count+1))
+			ncurses.mvwrite(6, 27, prod_code_in_menu[prod_choosed]);
+			
+			trail.insert_data(location.symbolic, prod_name[prod_choosed]);
+	
+	                identity.preferred = trail.preferred_activity_local(location.symbolic);         
+			
+			ncurses.mvwrite(5, 27, identity.preferred);
+		       end
+
+			ncurses.mvwrite(23, 3, "PRODUTOS QUE INTERESSAM...:");
+              	 
+			ncurses_menu.clear();
+                        size_p_list = trail.size_preferred_list();
+			//prod_choosed = -1;
+			
+			if (size_p_list <> -1) 
+			count2 = 0;
+        			for(index=1; index<=size_p_list; index++)
+				for(prod_number=1; prod_number<=prod_list.size(); prod_number++)
+				offer = prod_list[prod_number];
+					if(offer.results[3]==location.symbolic)
+					 if (trail.get_activity_pos(index)==offer.results[1])
+                                      		ncurses_menu.new_item(tools.pad(offer.keys[1], 30) 
+						+ tools.pad(offer.keys[2], 3) + tools.pad(offer.results[1], 30) 
+						+ tools.ftoa(offer.results[2]));
+
+					count2++;
+					prod_name2[count2] = offer.results[1];
+					prod_code_in_menu2[count2] = offer.keys[2];
+					service_name_in_menu2[count2] = offer.results[4];
+							end
+						end					
+					end
+				end
+			end
+
+			ncurses_menu.new_item(tools.pad("NDA", 30));
+			prod_choosed = ncurses_menu.show(10, 71, 24, 1);
+			if (count2 > 0)
+               			if (prod_choosed <> (count2+1))
+				ncurses.mvwrite(6, 27, prod_code_in_menu2[prod_choosed]);
+				trail.insert_data(location.symbolic, prod_name2[prod_choosed]);
+	                	identity.preferred = trail.preferred_activity_local(location.symbolic);         
+				ncurses.mvwrite(5, 27, identity.preferred);	
+				end
+			end
+
+        	end
+		ncurses_menu.clear();
+		ncurses.refresh();
+		ncurses.mvwrite(37, 3, "PROXIMO LOCAL...:");location.symbolic = ncurses.read();
+		ncurses.mvwrite(37, 27, location.symbolic);		
+		
+		ncurses.refresh();
+	        //ncurses.getch();
+		ncurses.endwin();
+		end
+		
+		trail.drop();
+
+	end
+
+	
+	
+        method get_infos()
+
+		var int i;
+		var string object_name;
+
+		ncurses.mvwrite(1, 37, "BETA - COMERCIO");
+	        ncurses.mvwrite(4,  2, "NOME....................:"); identity.name = ncurses.read();
+		identity.preferred="";
+		ncurses.mvwrite(5, 2,  "ATIVIDADE PREFERIDA.....:");ncurses.mvwrite(5, 27, identity.preferred);
+                ncurses.mvwrite(6, 2,  "VISUALIZAR PRODUTO N. ..:");
+	
+	end
+
+end

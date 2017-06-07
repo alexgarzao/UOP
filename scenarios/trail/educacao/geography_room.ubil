@@ -1,0 +1,48 @@
+//import datetime;
+import ncurses;
+import trail;
+
+entity school
+
+    prop int _line;
+    prop int _obj_count;
+
+    method constructor()
+
+        {"/escola"}.spublish("acess_control");
+
+	io.writeln(location.symbolic);	
+
+        {"/escola"}.cpublish("CLIMA", "1" => "PDF", 6, location.symbolic,"acess_control");
+	{"/escola"}.cpublish("CLIMA", "2" => "ODT", 3, location.symbolic,"acess_control");
+	{"/escola"}.cpublish("CLIMA", "3" => "DOC", 3, location.symbolic,"acess_control");
+	{"/escola"}.cpublish("EXERCICIOS", "4" => "PDF", 5, location.symbolic,"acess_control");
+	{"/escola"}.cpublish("EXERCICIOS", "5" => "DOC", 2, location.symbolic,"acess_control");
+
+
+	io.key_press();		
+
+    end
+
+    service acess_control(string student_name, string format) [int]
+        io.writeln("[Escola] Arquivo visualizado por ", student_name, ", No formato ", offer_code);
+        last_view++;
+        io.writeln("[Escola] Numero do pedido: ", last_order);
+
+        return last_view;
+    end
+
+    	
+end
+
+
+entity start
+
+ method constructor()
+	location.symbolic = "sala03";
+	
+	school.new();
+ end
+
+
+end

@@ -1,0 +1,23 @@
+entity A
+	method int X;
+	method int Y;
+	method setX(int value)
+		X = value;
+	end
+	method setY(int value)
+		Y = value;
+	end
+end
+
+entity start
+	method constructor()
+		element a = A.new();
+		a.onChanged += alterado;
+		a.setX(12);
+		a.setY(24);
+	end
+	method alterado(string property, string oldValue, string newValue)
+		io.writeln("A propriedade " + property + " foi alterada de " + oldValue + " para " + newValue);
+	end
+end
+

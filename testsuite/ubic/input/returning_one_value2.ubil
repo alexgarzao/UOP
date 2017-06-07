@@ -1,0 +1,10 @@
+entity start
+	method adicao(int x, int y) [int]
+		return(x + y);
+	end
+	method constructor()
+		var int a = adicao(10,20);
+		io.writeln("Adicao dos valores    : ", a);
+	end
+end
+

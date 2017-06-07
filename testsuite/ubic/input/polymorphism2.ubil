@@ -1,0 +1,33 @@
+entity A
+	method x()
+		io.writeln("Executando x na entidade A");
+	end
+	method y()
+		io.writeln("Executando y na entidade A");
+	end
+end
+
+entity B extends A
+	method override y()
+		super();
+		io.writeln("Executando y na entidade B");
+	end
+	method z()
+		io.writeln("Executando z na entidade B");
+	end
+end
+
+entity Start
+	method constructor()
+		var element a;
+		a = A.new();
+		a.x();
+		a.y();
+
+		a = B.new();
+		a.x();
+		a.y();
+		a.z();
+	end
+end
+

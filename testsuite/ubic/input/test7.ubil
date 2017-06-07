@@ -1,0 +1,11 @@
+entity start
+	method constructor()
+		var int v1 = 0;
+		io.writeln("v1 em start/0: ", v1);
+		metodo1("Nome");
+		io.writeln("v1 em start/0: ", v1);
+	end
+	method metodo1(string v1)
+		io.writeln("v1 em metodo1/1: ", v1);
+	end
+end

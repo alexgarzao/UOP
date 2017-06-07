@@ -1,0 +1,8 @@
+entity start
+	method constructor()
+		io.writeln("Inserindo informacoes");
+		{"MeuContexto"}.cpublish("Numero 1" => 100);
+		io.writeln("findnb em informacao inexistente: ", {"MeuContexto"}.cfindnb("Numero X"));
+		io.writeln("Informacoes inseridas: ", {"MeuContexto"}.cfind("Numero 1"));
+	end
+end

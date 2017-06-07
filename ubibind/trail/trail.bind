@@ -1,0 +1,52 @@
+/* trail.bind */
+%module trail
+%{
+/* Put header files here or function declarations like below */
+#include "database.h"
+
+extern "C" void uvm_os_wrap_libtrail_return2(CDataStack& dataStack)
+{
+	char* text;
+
+	text = "lucian";
+
+	dataStack.push(std::string(text));
+}
+
+%}
+
+char *create_trail(void);
+char *database_close_trail(void);
+char *insert_data(char *local, char *activity);
+char *insert_data_d(char *local, char *activity, char *data);
+char *preferred_activity();
+char *preferred_activity_local(char *local);
+
+//consultar dados da pilha de favoritos
+int size_preferred_list();
+char *get_activity_pos(int pos);
+
+//desuso
+char *consult_period_date(char *data1, char *data2);
+int queue_date_size();
+char *return_local_date(int position);
+char *return_activity_date(int position);
+char *return_date_date(int position);
+
+int find_activity(char *local, char *date);
+char *return_activity(int position);
+char *delete_local(char *local);
+char *drop();
+
+
+//consulta de todos os dados
+int return_number_records();
+char *return_consult_local(int position);
+char *return_consult_activity(int position);
+char *return_consult_data(int position);
+
+//consulta por range de data
+int consult_period_date2(char *date1, char *date2);
+char *return_period_date_local(int position);
+char *return_period_date_activity(int position);
+char *return_period_date_date(int position);

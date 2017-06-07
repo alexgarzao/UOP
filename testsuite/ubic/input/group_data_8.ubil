@@ -1,0 +1,13 @@
+import datetime;
+
+entity start
+	method constructor()
+		io.writeln("Inserindo informacao");
+		{"MeuContexto"}.cpublish("Numero 1" => 100);
+		io.writeln("findnb em informacao inexistente: ", {"MeuContexto"}.cfindnb("Numero X"));
+		io.writeln("Informacao inserida: ", {"MeuContexto"}.cfind("Numero 1"));
+		io.writeln("Removendo informacao inserida: ", {"MeuContexto"}.cget("Numero 1"));
+		io.writeln("Numero 1 nao existe mais: ", {"MeuContexto"}.cfindnb("Numero 1"));
+		io.writeln("Numero 1 nao existe mais: ", {"MeuContexto"}.cgetnb("Numero 1"));
+	end
+end

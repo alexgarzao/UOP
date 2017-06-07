@@ -1,0 +1,21 @@
+entity start
+	method constructor()
+		var element elemento1 = concorrente(1).new();
+		var element elemento2 = concorrente(2).new();
+		for(int x = 1; x <= 5; x++)
+			io.writeln( "Elemento 'start' esta na iteracao ", x );
+		end
+		io.writeln("Elemento ", {"context1"}.data.get("terminei"), " terminou...");
+		io.writeln("Elemento ", {"context1"}.data.get("terminei"), " terminou...");
+	end
+end
+
+entity concorrente [parallel]
+	method constructor(int id)
+		for(int x = 1; x <= 20; x++)
+			io.writeln("Entidade ", id, " esta na iteracao ", x);
+		end
+		{"context1"}.data.publish("terminei" => id);
+	end
+end
+

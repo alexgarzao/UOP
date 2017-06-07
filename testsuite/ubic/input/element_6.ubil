@@ -1,0 +1,15 @@
+entity start
+	method constructor()
+		var element e;
+		e = elemento.new();
+		e.x("oi","oi de novo !!!");
+	end
+end
+
+entity elemento
+	method x(string msg1, string msg2)
+		io.writeln("msg1=", msg1);
+		io.writeln("msg2=", msg2);
+	end
+end
+

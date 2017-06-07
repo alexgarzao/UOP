@@ -1,0 +1,21 @@
+entity start
+	method constructor()
+		var element e;
+		io.writeln("antes da chamada a elemento::x");
+		e = elemento.new();
+		e.x();
+		io.writeln("depois da chamada a elemento::x");
+	end
+end
+
+entity elemento
+	method x()
+		io.writeln("antes da chamada a elemento::y");
+		y();
+		io.writeln("depois da chamada a elemento::y");
+	end
+	method y()
+		io.writeln("no metodo elemento::y");
+	end
+end
+

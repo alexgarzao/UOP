@@ -1,0 +1,12 @@
+entity a
+	method print()
+		io.writeln("Executando print...");
+	end
+end
+
+entity start
+	method constructor()
+		a.new().print();
+	end
+end
+

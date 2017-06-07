@@ -1,0 +1,7 @@
+entity start
+	method constructor()
+		var real var1;
+		var1 = 10.99;
+	end
+end
+

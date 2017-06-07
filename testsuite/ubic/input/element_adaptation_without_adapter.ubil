@@ -1,0 +1,24 @@
+entity TestShowImages
+	method run()
+		io.writeln( "Exibe imagens !!!" );
+	end
+end
+
+entity TestNoImages
+	method run()
+		io.writeln( "Nao exibe imagens !!!" );
+	end
+end
+
+entity start
+	method constructor()
+		if (identity.device.images == true)
+			var element test = TestShowImages.new();
+			test.run();
+		else if (identity.device.images == false)
+			var element test = TestNoImages.new();
+			test.run();
+		end
+	end
+end
+

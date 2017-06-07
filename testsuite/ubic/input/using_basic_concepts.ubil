@@ -1,0 +1,15 @@
+entity soma
+	method calcula() [int]
+		return 10 + 20;
+	end
+end
+
+entity start
+	method constructor()
+		var int result;
+		var element s = soma.new();
+		result = s.calcula();
+		io.writeln("Resultado: ", result);
+	end
+end
+

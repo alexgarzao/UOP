@@ -1,0 +1,13 @@
+entity start
+	method constructor()
+		var int result1;
+		var int result2;
+		result1,result2 = x();
+		io.writeln("result1: ", result1);
+		io.writeln("result2: ", result2);
+	end
+	method x() [int,int]
+		return;
+	end
+end
+

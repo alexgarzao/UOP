@@ -1,0 +1,26 @@
+entity servico
+	service soma(int x, int y) [int]
+		return x+y;
+	end
+	service diminui(int x, int y) [int]
+		return x-y;
+	end
+	service imprime(string msg)
+		io.writeln("Mensagem: ", msg);
+	end
+	method constructor()
+		{"context"}.spublish("soma");
+		{"context"}.spublish("diminui");
+		{"context"}.spublish("imprime");
+	end
+end
+
+entity start
+	method constructor()
+		var element s = servico.new();
+		io.writeln("Soma  : ",  {"context"}.srun("soma",10,20));
+		io.writeln("Diminui: ", {"context"}.srun("diminui",10,20));
+		{"context"}.srun("imprime","Ola !!!");
+	end
+end
+

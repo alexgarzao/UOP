@@ -1,0 +1,18 @@
+entity start
+	method constructor()
+		var string result1;
+		var string result2;
+		var element e;
+		e = elemento.new();
+		result1,result2 = e.x();
+		io.writeln("result1: ", result1);
+		io.writeln("result2: ", result2);
+	end
+end
+
+entity elemento
+	method x() [string,string]
+		return;
+	end
+end
+

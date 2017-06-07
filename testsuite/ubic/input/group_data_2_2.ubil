@@ -1,0 +1,7 @@
+// Segundo teste: Programa 1 insere informação que o programa 2 irá remover
+
+entity start
+	method constructor()
+		io.writeln("Informacoes inseridas pelo programa 1: ", {"MeuContexto"}.cfind("Numero 1"));
+	end
+end

@@ -1,0 +1,10 @@
+entity start
+	method constructor()
+		x("oi","oi de novo !!!");
+	end
+	method x(string msg1, string msg2)
+		io.writeln("msg1=", msg1);
+		io.writeln("msg2=", msg2);
+	end
+end
+

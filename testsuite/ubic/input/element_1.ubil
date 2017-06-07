@@ -1,0 +1,13 @@
+entity start
+	method constructor()
+		var element e;
+		e = elemento.new();
+		e.imprime();
+	end
+end
+
+entity elemento
+	method imprime()
+		io.writeln("Oi !!!!");
+	end
+end

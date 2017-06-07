@@ -1,0 +1,25 @@
+entity reservatorio
+	method event cheio;
+	method int litros
+		get return litros
+		set litros = value
+			if (litros >= 1000)
+				litros = 1000;
+				raise cheio;
+			end
+		end
+	end
+end
+
+entity start
+	method constructor()
+		var element agua = reservatorio.new();
+		agua.cheio += reservatorio_cheio;
+		agua.litros = 100;
+		agua.litros = 1000;
+	end
+	method reservatorio_cheio()
+		io.writeln("O reservatorio esta cheio");
+	end
+end
+

@@ -1,0 +1,9 @@
+entity start
+	method m1()
+		io.writeln "m1";
+	end
+	method Start()
+		io.m1();
+	end
+end
+

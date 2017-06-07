@@ -1,0 +1,8 @@
+entity start
+	method constructor()
+		identity.name = "Alex";
+		string message = {"MeuContexto"}.cget(identity.myname);
+		io.writeln("Mensagem recebida: " + message);
+	end
+end
+

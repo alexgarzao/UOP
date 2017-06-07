@@ -1,0 +1,21 @@
+entity start
+	method multiplica(int x, int y) [int]
+		return x * y;
+	end
+	method calcula(int x, int y) [int, int]
+		return x + y, x - y;
+//		return(x + y, x - y);
+	end
+	method constructor()
+//		int m, a, s;
+		var int m;
+		var int a;
+		var int s;
+		m = multiplica(10,20);
+		a, s = calcula(10,20);
+		io.writeln("Multiplicacao dos valores: ", m);
+		io.writeln("Adicao dos valores       : ", a);
+		io.writeln("Subtracao dos valores    : ", s);
+	end
+end
+

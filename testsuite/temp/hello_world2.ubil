@@ -1,0 +1,93 @@
+import trail;
+
+entity start
+
+	prop string retorno;
+	prop int qtd_queue;
+	prop int i;
+	prop int qtd_retorno;
+
+	method constructor()
+		//io.writeln(trail.drop());
+		io.writeln(trail.create_trail());
+		
+		retorno = trail.preferred_activity_local("Local3");
+		io.writeln( retorno );
+
+		io.writeln(trail.insert_data("Local", "Produto visualizado1"));
+                trail.insert_data("Local", "Produto visualizado2");
+		trail.insert_data("Local", "Produto visualizado3");
+		trail.insert_data("Local3", "Produto visualizado4");
+		trail.insert_data("Local3", "Produto visualizado2");
+		trail.insert_data("Local3", "Produto visualizado3");
+		trail.insert_data("Local3", "Produto visualizado3");
+
+		//io.writeln(trail.insert_data_d("Local", "Produto visualizado1", "2016-02-01"));
+                //trail.insert_data_d("Local", "Produto visualizado2", "2016-02-02");
+		//trail.insert_data_d("Local", "Produto visualizado3", "2016-02-02");
+		//trail.insert_data_d("Local3", "Produto visualizado4", "2016-03-02");
+		//trail.insert_data_d("Local3", "Produto visualizado2", "2016-04-02");
+		//trail.insert_data_d("Local3", "Produto visualizado3", "2016-06-02");
+		//trail.insert_data_d("Local3", "Produto visualizado3", "2016-06-02");
+
+		//retorno = trail.preferred_activity_local("Local3");
+		//retorno = trail.preferred_activity_local("Local3");
+		//retorno = trail.preferred_activity_local("Local3");
+		//retorno = trail.preferred_activity_local("Local3");
+		//retorno = trail.preferred_activity_local("Local3");
+		//retorno = trail.preferred_activity_local("Local3");
+		//retorno = trail.preferred_activity_local("Local3");
+		//retorno = trail.preferred_activity_local("Local3");
+		//retorno = trail.preferred_activity_local("Local3");
+		//retorno = trail.preferred_activity_local("Local3");
+		//retorno = trail.preferred_activity_local("Local3");
+		//retorno = trail.preferred_activity_local("Local3");
+		//io.writeln( retorno );
+
+		trail.insert_data("Local3", "Produto visualizado3");
+		trail.insert_data("Local3", "Produto visualizado3");
+
+		//retorno = trail.preferred_activity_local("Local3");
+		//retorno = trail.preferred_activity_local("Local3");
+		//retorno = trail.preferred_activity_local("Local3");
+		//io.writeln( retorno );
+
+
+		
+		qtd_retorno = trail.consult_period_date2("2013-06-02", "2013-07-02");
+
+		io.writeln(qtd_retorno);
+                for(i=0; i<=qtd_retorno; i++)
+		   io.writeln(trail.return_period_date_local(i)+" "+trail.return_period_date_activity(i)+" "+trail.return_period_date_date(i));
+		end
+
+		io.writeln("==========================================");
+         	io.writeln("Produto, de acordo com o local e data");
+		io.writeln("==========================================");
+
+
+		trail.database_close_trail();
+		trail.create_trail();
+
+		qtd_retorno = trail.find_activity("Local", "2013-06-02");
+		io.writeln(qtd_retorno);
+		for(i=0; i<=qtd_retorno; i++)
+		  io.writeln(trail.return_activity(i)); 
+		end
+		
+
+		//retorno = trail.delete_local("Local3");
+		//io.writeln( retorno );
+
+         	//io.writeln("consulta de atividades");
+		//qtd_retorno = trail.return_number_records();
+		//for(i=0; i<=qtd_retorno; i++)
+		   //io.writeln(trail.return_consult_local(i)+" "+trail.return_consult_activity(i)+" "+trail.return_consult_data(i));
+		//end
+		
+		//io.writeln(trail.database_close_trail());		
+
+		retorno = trail.drop();
+		io.writeln( retorno );
+	end
+end

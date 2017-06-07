@@ -1,0 +1,14 @@
+entity start
+	method constructor()
+		var table tab;
+
+		tab["Alex"   ] = 34;
+		tab["Gracy"  ] = 32;
+		tab["Gabriel"] = 1;
+
+		io.writeln("Alex   =", tab["Alex"]   );
+		io.writeln("Gracy  =", tab["Gracy"]  );
+		io.writeln("Gabriel=", tab["Gabriel"]);
+	end
+end
+

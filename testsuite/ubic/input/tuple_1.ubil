@@ -1,0 +1,8 @@
+entity start
+	method constructor()
+		var tuple number;
+		{"MeuContexto"}.cpublish("Numero 1" => 100);
+		number = {"MeuContexto"}.cfind("Numero 1");
+		io.writeln("Informacoes inseridas: key=", number.keys[1], " value=", number.results[1]);
+	end
+end

@@ -1,0 +1,14 @@
+entity start
+	method constructor()
+		x();
+	end
+	method x()
+		var string result;
+		result = y();
+		io.writeln("result: ", result);
+	end
+	method y() [string]
+		return "oi";
+	end
+end
+

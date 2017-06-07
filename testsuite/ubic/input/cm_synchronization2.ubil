@@ -1,0 +1,10 @@
+Entity Start:
+  def start():
+    Process p = Process.new()
+    writeln("Resultado: " +
+      ["context"].data -= {"Resultado"})
+
+Entity Process:
+  def process():
+    ["context"].data += {"Resultado", 10 * 2}
+

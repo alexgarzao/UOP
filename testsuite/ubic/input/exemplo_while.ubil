@@ -1,0 +1,11 @@
+entity start
+	method constructor()
+		var int i = 1;
+		while(i <= 10)
+			io.writeln(i);
+			i=i+1;
+//			i++;
+		end
+	end
+end
+

@@ -1,0 +1,9 @@
+import datetime
+
+entity start
+	method constructor()
+		{"context"}.cpublish("xxx" => "yyy", "zzz");
+		{"context"}.cpublish("xxx2" => "yyy2", "zzz2");
+	end
+end
+

@@ -1,0 +1,7 @@
+entity start
+	method constructor()
+		io.writeln( "Olá mundo !!!" );
+		io.writeln( "Olá mundo !!!", "Mais teste !!!" );
+	end
+end
+

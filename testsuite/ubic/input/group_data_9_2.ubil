@@ -1,0 +1,8 @@
+entity start
+	method constructor()
+		io.writeln("Programa 2 inserindo informacao");
+		{"MeuContexto"}.cpublish("Nro 1" => 1000);
+		while(true)
+		end
+	end
+end

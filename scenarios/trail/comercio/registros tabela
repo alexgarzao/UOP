@@ -1,0 +1,32 @@
+sqlite> select * from trail;
+loja1|Calca|2013-05-09 21:39:45
+loja1|Camiseta|2013-05-09 21:49:31
+loja1|Calca|2013-05-09 21:58:34
+loja1|Meia|2013-05-09 22:01:10
+loja2|Meia|2013-05-09 22:04:49
+loja2|Blazer|2013-05-09 22:10:23
+loja2|Blazer|2013-05-09 22:10:50
+loja2|Blazer|2013-05-09 22:11:01
+loja2|Blazer|2013-05-09 22:11:12
+loja2|Calca social|2013-05-09 22:11:24
+loja2|Terno|2013-05-09 22:12:00
+loja2|Terno|2013-05-09 22:12:37
+loja3|Terno|2013-05-09 22:20:55
+loja3|Camiseta|2013-05-09 22:35:40
+loja3|Camiseta|2013-05-09 22:35:57
+loja3|Camisa|2013-05-09 22:36:15
+loja3|Camisa|2013-05-09 22:36:20
+loja3|Camiseta|2013-05-09 22:36:39
+loja3|Camiseta|2013-05-09 22:36:52
+loja3|Camiseta|2013-05-09 22:37:03
+loja3|Camiseta|2013-05-09 22:37:12
+loja3|Camisa|2013-05-09 22:37:26
+loja3|Calca|2013-05-09 22:37:43
+rest1|Meia|2013-05-09 22:45:13
+rest1|Xis|2013-05-09 22:51:07
+rest1|Xis|2013-05-09 22:51:28
+rest1|Xis|2013-05-09 22:52:09
+rest1|Buffet|2013-05-09 22:52:21
+rest1|Xis|2013-05-09 22:53:17
+rest1|Bauru|2013-05-09 22:53:45
+rest1|Bauru|2013-05-09 22:56:40

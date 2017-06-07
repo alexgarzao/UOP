@@ -1,0 +1,10 @@
+entity start
+	method constructor()
+		io.writeln("Entidades existentes em MeuContexto");
+		foreach(element e in {"MeuContexto"}.entitieslist)
+			io.writeln("  Nome: " + e.name);
+			{"MeuContexto"}.cpublish(e.name => "Bom dia " + e.name + " !!!");
+		end
+	end
+end
+

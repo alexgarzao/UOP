@@ -1,0 +1,19 @@
+entity start
+	method constructor()
+		x();
+	end
+	method x()
+		var string result;
+		var element e;
+		e = elemento.new();
+		result = e.y();
+		io.writeln("result: ", result);
+	end
+end
+
+entity elemento
+	method y() [string]
+		return "oi";
+	end
+end
+

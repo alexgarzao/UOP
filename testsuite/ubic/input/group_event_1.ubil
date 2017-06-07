@@ -1,0 +1,15 @@
+import datetime;
+
+entity start
+	method constructor()
+		{"context"}.on_insert_data += ev_dado_inserido;
+		{"context"}.cpublish("xxx" => "yyy", "zzz");
+		{"context"}.cpublish("xxx2" => "yyy2", "zzz2");
+		datetime.sleep(2);
+		io.writeln("Terminando a execucao...");
+	end
+	method ev_dado_inserido(string chave, string valor)
+		io.writeln("Inserido chave ", chave, " com valor ", valor);
+	end
+end
+

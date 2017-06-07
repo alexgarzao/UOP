@@ -1,0 +1,12 @@
+entity start
+	method constructor()
+		var int value = 10;
+		if (value < 100)
+			value = 100;
+		else
+			value = value - 1;
+		end
+		io.writeln("value=", value);
+	end
+end
+

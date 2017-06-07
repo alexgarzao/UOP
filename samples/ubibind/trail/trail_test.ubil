@@ -1,0 +1,7 @@
+import trail;
+
+entity start
+	method constructor()
+		trail.database_open();
+	end
+end

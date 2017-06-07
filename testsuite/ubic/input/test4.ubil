@@ -1,0 +1,9 @@
+entity start
+	method constructor()
+		var int quantos = 10;
+		var int x;
+		for(x = 1; x <= quantos; x=x+1)
+			io.writeln(x);
+		end
+	end
+end

@@ -1,0 +1,19 @@
+entity a
+	prop int x;
+	method set_x(int value)
+		x = value;
+	end
+end
+
+entity start
+	method constructor()
+		var element e = a.new();
+		e.on_property_changed += alterado;
+		e.set_x(12);
+	end
+	method alterado(string prop_name, string old, string new)
+		io.writeln("A propriedade " + prop_name + " foi alterada de " + old + " para " + new);
+//		io.writeln("A propriedade ", prop_name, " foi alterada de ", old, " para ", new);
+	end
+end
+

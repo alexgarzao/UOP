@@ -1,0 +1,162 @@
+import ncurses;
+import ncurses_menu;
+import trail;
+import tools;
+
+entity start
+
+	method constructor()
+		var tuple material;                
+		var table doc_list;
+		var string text;
+		var string preferred;
+		var int doc_number;
+
+		var int doc_choosed;
+		var int count = 0;
+		var table doc_name;
+		var table doc_code_in_menu;
+		var table service_name_in_menu;
+		var int have = 0;
+
+		//var int prod_choosed2;
+		var int count2 = 0;
+		var table prod_name2;
+		var table prod_code_in_menu2;
+		var table service_name_in_menu2;
+		var int size_p_list=0;
+		var int index=0;
+
+		//trail.drop();
+		trail.create_trail();
+		
+		ncurses.initscr();
+		
+		ncurses.mvwrite(3,  2, "LOCAL...................: "); ncurses.mvwrite(3, 27, location.symbolic);
+				
+		
+		location.symbolic = "patio";
+		while(location.symbolic<>"end")
+		//int prod_number5;
+		ncurses.mvwrite(3, 27, location.symbolic);
+		
+		get_infos();
+		
+  		ncurses.mvwrite(10, 3, "ARQUIVO(S)                 CODIGO/FORMATO               TAMANHO(MB)");
+		ncurses_menu.clear();
+		doc_list = {"/escola"}.clist();
+        	identity.preferred = "";
+		identity.preferred = trail.preferred_activity();
+
+		count=0;
+		size_p_list = trail.size_preferred_list();
+		
+		if (size_p_list <> -1)
+			ncurses.mvwrite(5, 27, identity.preferred);
+			for(index=0; index<=size_p_list; index++)			
+				for(doc_number=1; doc_number<=doc_list.size(); doc_number++)			
+					material = doc_list[doc_number];				
+						if(material.results[3]==location.symbolic and 
+						   trail.get_activity_pos(index)==material.results[1])
+		                              		ncurses_menu.new_item(tools.pad(material.keys[1], 30) 
+							+ tools.pad(material.keys[2], 3) + tools.pad(material.results[1], 30) 
+							+ tools.itoa(material.results[2]));
+
+							count++;
+							doc_name[count] = material.results[1];
+							doc_code_in_menu[count] = material.keys[2];
+							
+						end					
+					end
+				end
+				
+				for(doc_number=1; doc_number<=doc_list.size(); doc_number++)			
+					have = 0;					
+					material = doc_list[doc_number];	
+					for(index=0; index<=size_p_list; index++)
+						if(material.results[3]==location.symbolic and trail.get_activity_pos(index)==material.results[1])
+		                              		have = 1;
+						end
+					end
+					if(material.results[3]==location.symbolic and have==0)
+						ncurses_menu.new_item(tools.pad(material.keys[1], 30) 
+						+ tools.pad(material.keys[2], 3) + tools.pad(material.results[1], 30) 
+						+ tools.itoa(material.results[2]));
+
+						count++;
+						doc_name[count] = material.results[1];
+						doc_code_in_menu[count] = material.keys[2];
+						
+					end
+			end
+			
+			
+
+			ncurses_menu.new_item(tools.pad("NDA", 30));
+			doc_choosed = ncurses_menu.show(15, 70, 11, 1);
+
+		else
+			for(doc_number=1; doc_number<=doc_list.size(); doc_number++)
+				material = doc_list[doc_number];
+				if(material.results[3]==location.symbolic and material.results[1]<>identity.preferred)
+					ncurses_menu.new_item(tools.pad(material.keys[1], 30) + tools.pad(material.keys[2], 3) 
+					+ tools.pad(material.results[1], 30) + tools.itoa(material.results[2]));
+
+					count++;
+					doc_name[count] = material.results[1];
+					doc_code_in_menu[count] = material.keys[2];
+	
+				end
+			
+			end
+			ncurses_menu.new_item(tools.pad("NDA", 30));
+			doc_choosed = ncurses_menu.show(15, 70, 11, 1);
+		end
+
+		
+		if (count > 0)
+        	       if (doc_choosed <> (count+1))
+			ncurses.mvwrite(6, 27, doc_code_in_menu[doc_choosed]);
+			
+			trail.insert_data(location.symbolic, doc_name[doc_choosed]);
+	
+	                identity.preferred = trail.preferred_activity(location.symbolic);         
+			ncurses.mvwrite(5, 27, identity.preferred);
+		       end
+        	end
+
+		//qtd_retorno = trail.return_number_records();
+		//for(i=0; i<=qtd_retorno; i++)
+		   //io.writeln(trail.return_consult_local(i)+" "+trail.return_consult_activity(i)+" "+trail.return_consult_data(i));
+		//end
+
+		ncurses_menu.clear();
+		ncurses.refresh();
+		ncurses.mvwrite(37, 3, "PROXIMO LOCAL...:");location.symbolic = ncurses.read();
+		ncurses.mvwrite(37, 27, location.symbolic);		
+		
+		ncurses.refresh();
+	        //ncurses.getch();
+		ncurses.endwin();
+		end
+		
+		trail.drop();
+
+	end
+
+	//service_name_in_menu[count] = material.results[4];
+	
+        method get_infos()
+
+		var int i;
+		var string object_name;
+
+		ncurses.mvwrite(1, 37, "BETA - EDUCACIONAL");
+	        ncurses.mvwrite(4,  2, "NOME....................:"); identity.name = ncurses.read();
+		identity.preferred="";
+		ncurses.mvwrite(5, 2,  "ATIVIDADE PREFERIDA.....:");ncurses.mvwrite(5, 27, identity.preferred);
+                ncurses.mvwrite(6, 2,  "VISUALIZAR CONTEUDO.....:");
+	
+	end
+
+end

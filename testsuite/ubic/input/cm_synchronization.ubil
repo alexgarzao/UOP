@@ -1,0 +1,7 @@
+Entity Start:
+  def start():
+    def Process p = Process.new().fork()
+    writeln("Resultado: " + ["context"].data.get("Resultado"))
+Entity Process:
+  def process():
+    ["context"].data.publish("Resultado", 10 * 2)

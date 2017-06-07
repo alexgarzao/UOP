@@ -1,0 +1,16 @@
+entity servico
+	service soma(int x, int y) [int]
+		return x+y;
+	end
+	method constructor()
+		{"context"}.spublish("soma");
+	end
+end
+
+entity start
+	method constructor()
+		var element s = servico.new();
+		io.writeln("Soma: ", {"context"}.srun("soma",10,20));
+	end
+end
+

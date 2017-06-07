@@ -1,0 +1,11 @@
+entity start
+	method constructor()
+		io.writeln("antes da chamada a x");
+		x();
+		io.writeln("depois da chamada a x");
+	end
+	method x()
+		io.writeln("no metodo x");
+	end
+end
+

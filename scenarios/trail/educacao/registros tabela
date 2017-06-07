@@ -1,0 +1,10 @@
+sqlite> select * from trail;
+sala01|PDF|2016-02-02
+sala01|PDF|2016-02-02
+hall01|ODT|2016-02-02
+sala02|PDF|2016-02-02
+sala02|PDF|2016-02-02
+sala02|PDF|2016-02-02
+sala03|DOC|2016-02-02
+sala03|DOC|2016-02-02
+

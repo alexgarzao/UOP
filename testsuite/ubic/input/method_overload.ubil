@@ -1,0 +1,13 @@
+entity start
+	method print(string x)
+		io.writeln("Caracter: " + x);
+	end
+	method print(int x)
+		io.writeln("Numero: " + x);
+	end
+	method constructor()
+		io.print("Oi");
+		io.print(10);
+	end
+end
+

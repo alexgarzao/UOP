@@ -1,0 +1,6 @@
+entity start
+	method constructor()
+		io.writeln("Soma: ", {"service"}.srun("soma",10,20));
+	end
+end
+

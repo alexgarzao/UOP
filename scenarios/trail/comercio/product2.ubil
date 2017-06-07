@@ -1,0 +1,48 @@
+//import datetime;
+import ncurses;
+import trail;
+
+entity product
+
+    prop int _line;
+    prop int _obj_count;
+
+    method constructor()
+
+        {"/shopping"}.spublish("loja2_checkout");
+
+	io.writeln(location.symbolic);	
+
+        {"/shopping"}.cpublish("LOJA_2", "1" => "Gravata", 40.00, location.symbolic,"loja2_checkout");
+	{"/shopping"}.cpublish("LOJA_2", "2" => "Terno", 790.00, location.symbolic,"loja2_checkout");
+	{"/shopping"}.cpublish("LOJA_2", "3" => "Blazer", 590.00, location.symbolic,"loja2_checkout");
+	{"/shopping"}.cpublish("LOJA_2", "4" => "Calca social", 350.00, location.symbolic,"loja2_checkout");
+	{"/shopping"}.cpublish("LOJA_2", "5" => "Cinto", 150.00, location.symbolic,"loja2_checkout");
+
+
+	io.key_press();		
+
+    end
+
+    service loja2_checkout(string client_name, string offer_code) [int]
+        io.writeln("[Loja] Recebido pedido de ", client_name, ", referente a oferta ", offer_code);
+        last_order++;
+        io.writeln("[Loja] Numero do pedido: ", last_order);
+
+        return last_order;
+    end
+
+    	
+end
+
+
+entity start
+
+ method constructor()
+	location.symbolic = "loja2";
+	
+	product.new();
+ end
+
+
+end

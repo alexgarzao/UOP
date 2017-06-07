@@ -1,0 +1,13 @@
+import datetime;
+
+entity start
+	method constructor()
+		{"context"}.on_insert_data += ev_dado_inserido;
+		datetime.sleep(10);
+		io.writeln("Terminei de monitorar o evento on_insert_data.");
+	end
+	method ev_dado_inserido(string chave, string valor)
+		io.writeln("Alguem inseriu a chave ", chave, " com valor ", valor);
+	end
+end
+

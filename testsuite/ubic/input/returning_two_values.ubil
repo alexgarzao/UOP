@@ -1,0 +1,14 @@
+entity start
+	method calcula(int x, int y) [int, int]
+		return x + y, x - y;
+	end
+	method constructor()
+//		var int a, s;
+		var int a;
+		var int s;
+		a, s = calcula(10,20);
+		io.writeln("Adicao dos valores    : ", a);
+		io.writeln("Subtracao dos valores : ", s);
+	end
+end
+

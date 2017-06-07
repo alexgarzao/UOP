@@ -1,0 +1,9 @@
+entity start
+	method constructor()
+		var int var1;
+		var string var2;
+		var real var3;
+		var bool var4;
+	end
+end
+

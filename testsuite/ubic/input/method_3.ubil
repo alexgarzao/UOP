@@ -1,0 +1,9 @@
+entity start
+	method constructor()
+		x("oi");
+	end
+	method x(string msg)
+		io.writeln("msg=", msg);
+	end
+end
+

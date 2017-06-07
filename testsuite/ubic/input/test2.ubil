@@ -1,0 +1,6 @@
+entity start
+	method constructor()
+		var string var1 = "Hello world !!!";
+		io.writeln(var1);
+	end
+end

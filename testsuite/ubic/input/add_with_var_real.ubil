@@ -1,0 +1,10 @@
+entity start
+	method constructor()
+		var real var1;
+		var real var2;
+		var1 = 10.99;
+		var2 = var1 + 20.99;
+		io.writeln( var2 );
+	end
+end
+

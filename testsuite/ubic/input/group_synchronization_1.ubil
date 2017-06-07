@@ -1,0 +1,13 @@
+entity start
+	method constructor()
+		var element p = process.new();
+		io.writeln("Resultado: ", {"context"}.cget("Resultado"));
+	end
+end
+
+entity process [parallel]
+	method constructor()
+		{"context"}.cpublish("Resultado" => 10 * 2);
+	end
+end
+

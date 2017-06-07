@@ -1,0 +1,21 @@
+entity servico
+	service operations(int par1, int par2) [int,int]
+		io.writeln("par1=", par1, " par2=", par2);
+		return par1+par2, par1-par2;
+	end
+	method constructor()
+		{"context"}.spublish("operations");
+	end
+end
+
+entity start
+	method constructor()
+		var int soma;
+		var int subtracao;
+		var element s = servico.new();
+		soma,subtracao = {"context"}.srun("operations",2, 10);
+		io.writeln("soma     : ", soma);
+		io.writeln("subtracao: ", subtracao);
+	end
+end
+

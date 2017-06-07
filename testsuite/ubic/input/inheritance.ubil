@@ -1,0 +1,22 @@
+entity A
+	method x()
+		io.writeln("Executando A::x");
+	end
+end
+
+entity B extends A
+	method y()
+		io.writeln("Executando B::y");
+	end
+end
+
+entity start
+	method constructor()
+		var element a = A.new();
+		var element b = B.new();
+		a.x();
+		b.x();
+		b.y();
+	end
+end
+
